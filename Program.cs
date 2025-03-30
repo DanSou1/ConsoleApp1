@@ -21,7 +21,7 @@ namespace MathProblem
             int opc = 0;
             Console.WriteLine("----------------------------");
             Console.WriteLine("Desea calcular el area de: ");
-            Console.WriteLine("1. Circulo \n2. Cuadrado");
+            Console.WriteLine("1. Circulo \n2. Cuadrado \n3. Triangulo");
             Console.WriteLine("----------------------------");
             opc = Convert.ToInt16(Console.ReadLine());
             switch (opc)
@@ -31,6 +31,9 @@ namespace MathProblem
                     break;
                 case 2:
                     areas.AreaCuadrado();
+                    break;
+                case 3:
+                    areas.AreaTriangulo();
                     break;
             }
         }
@@ -80,6 +83,48 @@ namespace MathProblem
                 
             }
             Console.WriteLine($"El hpta perimetro es: {perimetro}");
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("¿Desea realizar otro calculo?");
+            Console.WriteLine("(1)Si por favor. \n(2)No, terminar.");
+            Console.WriteLine("----------------------------");
+            menu = Convert.ToInt16(Console.ReadLine());
+            if (menu == 1)
+            {
+                Main();
+            }
+            if (menu == 2)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine("Usted no seleccionó una opción valida.");
+            }
+        }
+
+        public void AreaTriangulo()
+        {
+            double[] num = new double[3];
+            double perimetro;
+            double area = 0;
+            double b, a;
+            Console.WriteLine("Por favor ingrese los lados del triangulo.");
+            for (int i = 0; i < num.Length; i++) 
+            {
+                Console.WriteLine($"Ingrese el lado numero {i+1}");
+                num[i] = Convert.ToInt32(Console.ReadLine());
+                area += num[i];
+            }
+            
+            Console.WriteLine("Por favor digite la base del triangulo");
+            b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Por favor digite la altura del triangulo");
+            a = Convert.ToDouble(Console.ReadLine());
+            perimetro = (b * a) / 2;
+            Console.WriteLine($"El perimetro es: {perimetro:N4}");
+            Console.WriteLine($"El area de su triangulo es: {area:N4}");
+            Console.WriteLine("----------------------------");
+
             Console.WriteLine("----------------------------");
             Console.WriteLine("¿Desea realizar otro calculo?");
             Console.WriteLine("(1)Si por favor. \n(2)No, terminar.");
