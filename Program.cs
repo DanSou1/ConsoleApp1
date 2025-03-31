@@ -1,14 +1,4 @@
 ﻿using System;
-//int num1;
-//int num2;
-//const double PI = Math.PI;
-//Console.WriteLine("Escribe un numero");
-//num1 = Convert.ToInt16(Console.ReadLine());
-//Console.WriteLine("Escribe el segundo numero");
-//num2 = Convert.ToInt16(Console.ReadLine());
-
-//Console.WriteLine($"La suma es: {num1 + num2} y pi es: {PI}");
-//Console.WriteLine("cw es el atajo para la linea de texto {0}", num1 + num2);
 
 namespace MathProblem
 {
@@ -21,7 +11,7 @@ namespace MathProblem
             int opc = 0;
             Console.WriteLine("----------------------------");
             Console.WriteLine("Desea calcular el area de: ");
-            Console.WriteLine("1. Circulo \n2. Cuadrado \n3. Triangulo");
+            Console.WriteLine("1. Circulo \n2. Cuadrado \n3. Triangulo \n4. Rectangulo \n0. Salir");
             Console.WriteLine("----------------------------");
             opc = Convert.ToInt16(Console.ReadLine());
             switch (opc)
@@ -34,6 +24,12 @@ namespace MathProblem
                     break;
                 case 3:
                     areas.AreaTriangulo();
+                    break;
+                case 4:
+                    areas.AreaRectangulo();
+                    break;
+                case 0:
+                    Environment.Exit(0);
                     break;
             }
         }
@@ -56,7 +52,7 @@ namespace MathProblem
             {
                 Main();
             }
-            if (menu == 2)
+            else if (menu == 2)
             {
                 Environment.Exit(0);
             }
@@ -68,7 +64,7 @@ namespace MathProblem
 
         public void AreaCuadrado()
         {
-            int[] array = new int[4];
+            int[] side = new int[4];
             int num1, area;
             int perimetro = 0;
             
@@ -77,9 +73,9 @@ namespace MathProblem
             area = Convert.ToInt32( Math.Pow(num1, 2));
             Console.WriteLine($"El Area es: {area}");
 
-            foreach (int i in array)
+            foreach (int i in side)
             {
-                perimetro = array[i] += num1;
+                perimetro = side[i] += num1;
                 
             }
             Console.WriteLine($"El hpta perimetro es: {perimetro}");
@@ -92,7 +88,7 @@ namespace MathProblem
             {
                 Main();
             }
-            if (menu == 2)
+            else if (menu == 2)
             {
                 Environment.Exit(0);
             }
@@ -134,7 +130,37 @@ namespace MathProblem
             {
                 Main();
             }
-            if (menu == 2)
+            else if (menu == 2)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.WriteLine("Usted no seleccionó una opción valida.");
+            }
+        }
+
+        public void AreaRectangulo()
+        {
+            int b, a, perimetro, area;
+
+            Console.WriteLine("Por favor escriba la base del rectangulo");
+            b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Por favor escriba la altura del rectangulo");
+            a = Convert.ToInt32(Console.ReadLine());
+            area = b * a;
+            perimetro = (b * 2) + (a * 2);
+            Console.WriteLine($"El perimetro es: {perimetro} \nEl area es: { area} ");
+            Console.WriteLine("----------------------------");
+            Console.WriteLine("¿Desea realizar otro calculo?");
+            Console.WriteLine("(1)Si por favor. \n(2)No, terminar.");
+            Console.WriteLine("----------------------------");
+            menu = int.Parse(Console.ReadLine());
+            if (menu == 1)
+            {
+                Main();
+            }
+            else if (menu == 2)
             {
                 Environment.Exit(0);
             }
